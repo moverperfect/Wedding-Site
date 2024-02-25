@@ -64,7 +64,7 @@ jobs:
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'wapp-uks-prod-stdserver-01'
           slot-name: 'production' # ${{ github.event_name == 'pull_request' && 'staging' || 'production' }}
