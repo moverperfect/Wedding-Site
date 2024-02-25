@@ -3,7 +3,10 @@ name: Build and deploy Node.js app to Azure Web App - wapp-uks-prod-stdserver-01
 on:
   push:
     branches:
-      - server
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -34,6 +37,7 @@ jobs:
           path: Server/release.zip
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -63,5 +67,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'wapp-uks-prod-stdserver-01'
-          slot-name: 'production'
+          slot-name: 'production' # ${{ github.event_name == 'pull_request' && 'staging' || 'production' }}
           package: .
