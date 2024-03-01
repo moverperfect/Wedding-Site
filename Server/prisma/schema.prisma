@@ -11,9 +11,10 @@ datasource db {
 
 model User {
   id        Int       @id @default(autoincrement())
-  email     String    @unique
+  email     String
   name      String?
   imageName String    @unique
+  emailName String?
 }
 
 model LogEntry {
