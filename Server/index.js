@@ -36,8 +36,11 @@ app.get('/invitation/:imageName', async (req, res) => {
   let timestamp = new Date().toISOString();
   const logEntry = `Timestamp: ${timestamp}, Image: ${imageName}, IP: ${clientIp}`;
   console.log(logEntry);
-  await logImageAccess(imageName, clientIp);
   res.sendFile(`${__dirname}/invitations/${imageName}`);
+  
+  logImageAccess(imageName, clientIp).catch(error => {
+    console.error('Falied to log image access:', error);
+  })
 });
 
 app.listen(port, () => {
