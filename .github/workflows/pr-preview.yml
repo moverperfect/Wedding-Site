@@ -27,7 +27,7 @@ jobs:
 
           cd Server
           docker build -t pr-preview:${{ github.event.number }} .
-          docker run -d --net=docker_backend --ip=172.17.1.2 --name pr-preview-${{ github.event.number }} --env-file ../../test.env pr-preview:${{ github.event.number }}
+          docker run -d --net=docker_backend --ip=172.20.1.2 --name pr-preview-${{ github.event.number }} --env-file ../../test.env pr-preview:${{ github.event.number }}
 
   cleanup:
     if: github.event.action == 'closed'
