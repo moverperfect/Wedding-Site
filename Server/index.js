@@ -4,6 +4,8 @@ const { PrismaClient } = require('@prisma/client');
 const { PrismaLibSQL } = require('@prisma/adapter-libsql');
 const { createClient } = require('@libsql/client');
 const fs = require('fs').promises;
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 app.disable('x-powered-by');
@@ -16,6 +18,9 @@ const libsql = createClient({
 
 const adapter = new PrismaLibSQL(libsql);
 const prisma = new PrismaClient({ adapter });
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.use(cookieParser());
 
 async function logImageAccess(imageName, ipAddress) {
   await prisma.logEntry.create({
@@ -38,7 +43,6 @@ app.get('/invitation/:imageName', async (req, res) => {
   const logEntry = `Timestamp: ${timestamp}, Image: ${imageName}, IP: ${clientIp}`;
   console.log(logEntry);
   res.sendFile(`${__dirname}/invitations/${imageName}`);
-
   logImageAccess(imageName, clientIp).catch((error) => {
     console.error('Falied to log image access:', error);
   });
@@ -68,6 +72,47 @@ app.get('/health', async (req, res) => {
   } finally {
     await prisma.$disconnect();
   }
+});
+
+app.get('/', async (req, res) => {
+  const flagKey = 'versionone';
+  const queryString = req.query[flagKey];
+  if (queryString != undefined && queryString === 'false') {
+    res.sendFile(`${__dirname}/public/coming_soon.html`);
+    // Delete the cookie
+    res.clearCookie(flagKey);
+    return;
+  }
+  if (req.cookies[flagKey] === 'true') {
+    res.sendFile(`${__dirname}/public/index.html`);
+    return;
+  }
+  if (req.query[flagKey] === undefined) {
+    res.sendFile(`${__dirname}/public/coming_soon.html`);
+    return;
+  }
+  res.cookie(flagKey, 'true', { maxAge: 900000, httpOnly: true });
+  res.sendFile(`${__dirname}/public/index.html`);
+});
+
+app.use(express.static('public'));
+
+app.post('/submit', urlencodedParser, async (req, res) => {
+  let name = req.body.name;
+  let email = req.body.email;
+  let numberOfGuests = req.body.numberOfGuests;
+  let isAttending = req.body.isAttending;
+  let message = req.body.message;
+
+  let clientIp =
+    req.headers['x-client-ip'] ||
+    req.headers['x-forwarded-for'] ||
+    req.connection.remoteAddress;
+
+  let timestamp = new Date().toISOString();
+  const logEntry = `Timestamp: ${timestamp}, Name: ${name}, Email: ${email}, Number of Guests: ${numberOfGuests}, Is Attending: ${isAttending}, Message: ${message}, IP: ${clientIp}`;
+  console.log(logEntry);
+  res.send('Thank You');
 });
 
 app.listen(port, () => {
