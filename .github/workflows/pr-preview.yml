@@ -1,46 +1,55 @@
-name: PR Review Deployment and Cleanup
+name: Deploy website
 
-on: 
+on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
+  push:
+    branches:
+      - main
 
 jobs:
-  deploy:
-    if: github.event.action != 'closed'
+  deployToTest:
+    if: github.event_name == 'pull_request'
     environment:
       name: test
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy using ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        script: |
-          cd ~/SaveTheDate-Emailer
-          git pull origin ${{ github.head_ref }}
-          docker stop pr-preview-${{ github.event.number }} || true
-          docker rm pr-preview-${{ github.event.number }} || true
-          docker rmi pr-preview:${{ github.event.number }} || true
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/SaveTheDate-Emailer
+            git pull origin ${{ github.head_ref }}
 
-          cd Server
-          docker build -t pr-preview:${{ github.event.number }} .
-          docker run -d --net=docker_backend --ip=172.20.1.2 --name pr-preview-${{ github.event.number }} --env-file ../../test.env pr-preview:${{ github.event.number }}
+            cd Server
+            docker build -t wedding:${{ github.event.number }} .
+            docker stop test_wedding || true
+            docker rm test_wedding || true
+            docker run -d --net=docker_backend --ip=172.20.2.2 --name test_wedding --env-file ../../test.env -v /home/${{ secrets.USERNAME }}/invitations:/usr/src/app/invitations:ro wedding:${{ github.event.number }}
 
-  cleanup:
-    if: github.event.action == 'closed'
+  deployProduction:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment:
+      name: production
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy using ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
-        script: |
-          docker stop pr-preview-${{ github.event.number }} || true
-          docker rm pr-preview-${{ github.event.number }} || true
-          docker rmi pr-preview:${{ github.event.number }} || true
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd ~/SaveTheDate-Emailer
+            git pull origin ${{ github.ref }}
+
+            cd Server
+            docker build -t wedding:${{ github.ref }} .
+            docker stop wedding || true
+            docker rm wedding || true
+            docker run -d --net=docker_backend --ip=172.20.2.1 --name live_wedding --env-file ../../production.env -v /home/${{ secrets.USERNAME }}/invitations:/usr/src/app/invitations:ro wedding:${{ github.ref }}
