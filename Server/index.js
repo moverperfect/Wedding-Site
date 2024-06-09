@@ -3,6 +3,7 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const { PrismaLibSQL } = require('@prisma/adapter-libsql');
 const { createClient } = require('@libsql/client');
+const fs = require('fs').promises;
 
 const app = express();
 app.disable('x-powered-by');
@@ -37,10 +38,36 @@ app.get('/invitation/:imageName', async (req, res) => {
   const logEntry = `Timestamp: ${timestamp}, Image: ${imageName}, IP: ${clientIp}`;
   console.log(logEntry);
   res.sendFile(`${__dirname}/invitations/${imageName}`);
-  
-  logImageAccess(imageName, clientIp).catch(error => {
+
+  logImageAccess(imageName, clientIp).catch((error) => {
     console.error('Falied to log image access:', error);
-  })
+  });
+});
+
+app.get('/health', async (req, res) => {
+  try {
+    const files = await fs.readdir(`${__dirname}/invitations`);
+    if (files.length === 0) {
+      throw new Error('No images found in invitations folder');
+    }
+
+    await prisma.$connect();
+
+    res.status(200).json({
+      status: 'success',
+      message: 'Health check passed',
+      invitationsCount: files.length,
+      database: 'connected',
+    });
+  } catch (error) {
+    res.status(503).json({
+      status: 'error',
+      message: 'Health check failed',
+      error: error.message,
+    });
+  } finally {
+    await prisma.$disconnect();
+  }
 });
 
 app.listen(port, () => {
