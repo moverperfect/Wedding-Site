@@ -4,12 +4,12 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/engine/reference/builder/
 
-ARG NODE_VERSION=18.17.1
+ARG NODE_VERSION=22.3.0
 
-FROM node:${NODE_VERSION}-alpine
+FROM node:${NODE_VERSION}-bookworm
 
 # Use production node environment by default.
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 
 WORKDIR /usr/src/app
@@ -35,4 +35,4 @@ USER node
 EXPOSE 3000
 
 # Run the application.
-CMD node index.js
+CMD ["node", "index.js"]
