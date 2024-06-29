@@ -23,9 +23,8 @@ jobs:
           script_stop: true
           script: |
             cd ~/SaveTheDate-Emailer
-            git fetch origin
-            git reset --hard origin/main
-            git pull origin ${{ github.head_ref }}
+            git fetch origin ${{ github.head_ref }}:${{ github.head_ref }} --force
+            git reset --hard FETCH_HEAD
 
             cd Server
             docker build -t wedding:${{ github.event.number }} .
