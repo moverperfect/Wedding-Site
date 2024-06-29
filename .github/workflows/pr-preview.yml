@@ -23,7 +23,7 @@ jobs:
           script_stop: true
           script: |
             cd ~/SaveTheDate-Emailer
-            git fetch origin ${{ github.head_ref }}:${{ github.head_ref }} --force
+            git fetch origin ${{ github.ref }}:${{ github.ref }} --force
             git reset --hard FETCH_HEAD
 
             cd Server
