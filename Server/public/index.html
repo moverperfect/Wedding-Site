@@ -15,6 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap"
     rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
 
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -30,19 +32,15 @@
   <link href="fonts/BlackerSansText-Regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
   <link href="fonts/BlackerSansText-Bold.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
 
-  <style>
-    @font-face {
-      font-family: 'Arimo';
-      src: url('fonts/Arimo-Regular.woff2') format('woff2');
-    }
-  </style>
+  <!-- <meta http-equiv="refresh" content="10"> -->
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51" style="font-family:'Arimo', sans-serif;">
   <!-- Navbar Start -->
   <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
     <a href="index.html" class="navbar-brand d-block d-lg-none">
-      <h1 class="font-secondary text-white mb-n2">Jack <span class="text-primary">&</span> Eleanor</h1>
+      <h1 class="font-secondary text-white mb-n2" style="color: var(--accent-color);">Jack <span
+          class="text-primary">&</span> Eleanor</h1>
     </a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
@@ -55,7 +53,8 @@
         <a href="#gallery" class="nav-item nav-link">Gallery</a>
       </div>
       <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
-        <h1 class="font-secondary text-white mb-n2">Jack <span class="text-primary">&</span> Eleanor</h1>
+        <h1 class="font-secondary text-white mb-n2" style="color: var(--accent-color);">Jack <span
+            class="text-primary">&</span> Eleanor</h1>
       </a>
       <div class="navbar-nav mr-auto py-0">
         <a href="#family" class="nav-item nav-link">Family</a>
@@ -124,10 +123,7 @@
         <div class="col-md-6 p-0 text-center text-md-right">
           <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
             <h3 class="mb-3">The Groom</h3>
-            <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum,
-              labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.</p>
-            <h3 class="font-secondary font-weight-normal text-muted mb-3"><i
-                class="fa fa-male text-primary pr-3"></i>Jack</h3>
+            <p>Only turning up for the food...and the party</p>
           </div>
         </div>
         <div class="col-md-6 p-0" style="min-height: 400px;">
@@ -141,10 +137,7 @@
         <div class="col-md-6 p-0 text-center text-md-left">
           <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
             <h3 class="mb-3">The Bride</h3>
-            <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum,
-              labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.</p>
-            <h3 class="font-secondary font-weight-normal text-muted mb-3"><i
-                class="fa fa-female text-primary pr-3"></i>Eleanor</h3>
+            <p>Only turning up for the photos...and because Jack's going</p>
           </div>
         </div>
       </div>
@@ -168,11 +161,10 @@
           </div>
           <div class="col-md-6 text-center text-md-left">
             <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
-              <h4 class="mb-2">First Meet</h4>
-              <p class="text-uppercase mb-2">01 Jan 2050</p>
-              <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
-                tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor
-                elitr.</p>
+              <h4 class="mb-2">First Met</h4>
+              <p class="text-uppercase mb-2">31<span style="text-transform: lowercase !important">st</span> March 2017
+              </p>
+              <p class="m-0"></p>
             </div>
           </div>
         </div>
@@ -180,10 +172,9 @@
           <div class="col-md-6 text-center text-md-right">
             <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
               <h4 class="mb-2">First Date</h4>
-              <p class="text-uppercase mb-2">01 Jan 2050</p>
-              <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
-                tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor
-                elitr.</p>
+              <p class="text-uppercase mb-2">17<span style="text-transform: lowercase !important">th</span> April 2017
+              </p>
+              <p class="m-0"></p>
             </div>
           </div>
           <div class="col-md-6 text-center text-md-left">
@@ -196,8 +187,9 @@
           </div>
           <div class="col-md-6 text-center text-md-left">
             <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
-              <h4 class="mb-2">Proposal</h4>
-              <p class="text-uppercase mb-2">01 Jan 2050</p>
+              <h4 class="mb-2">Nine Months Long Distance</h4>
+              <p class="text-uppercase mb-2">1<span style="text-transform: lowercase !important">st</span> September
+                2018</p>
               <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
                 tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor
                 elitr.</p>
@@ -207,8 +199,9 @@
         <div class="row">
           <div class="col-md-6 text-center text-md-right">
             <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
-              <h4 class="mb-2">Enagagement</h4>
-              <p class="text-uppercase mb-2">01 Jan 2050</p>
+              <h4 class="mb-2">Moved in Together</h4>
+              <p class="text-uppercase mb-2">17<span style="text-transform: lowercase !important">th</span> July 2019
+              </p>
               <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
                 tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor
                 elitr.</p>
@@ -216,6 +209,21 @@
           </div>
           <div class="col-md-6 text-center text-md-left">
             <img class="img-fluid ml-md-3" src="img/story-4.jpg" alt="">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-center text-md-right">
+            <img class="img-fluid mr-md-3" src="img/story-3.jpg" alt="">
+          </div>
+          <div class="col-md-6 text-center text-md-left">
+            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
+              <h4 class="mb-2">Engagement</h4>
+              <p class="text-uppercase mb-2">22<span style="text-transform: lowercase !important">nd</span> May
+                2023</p>
+              <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos
+                tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor
+                elitr.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -276,30 +284,74 @@
   <!-- Event Start -->
   <div class="container-fluid py-5" id="event">
     <div class="container py-5">
+      <!-- Section Title -->
       <div class="section-title position-relative text-center">
         <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Event</h6>
         <h1 class="font-secondary display-4">Our Wedding Event</h1>
         <i class="far fa-heart text-dark"></i>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-          <h5 class="font-weight-normal text-muted mb-3 pb-3">Clita ipsum aliquyam dolor diam dolores elitr nonumy.
-            Rebum sea vero ipsum eirmod tempor kasd. Diam amet lorem erat eos sit lorem elitr justo</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="text-center  mr-md-3 mb-4 mb-md-0">
-            <img class="img-fluid mb-4" src="img/event-1.jpg" alt="">
-            <h4 class="mb-3">Wasing Park</h4>
-            <p class="mb-2">Wasing Park, Newbury, ETC</p>
-            <p class="mb-0">12:00AM - Late</p>
+
+      <!-- On the Day Section -->
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-12 text-center">
+          <h2 class="font-secondary display-5 mb-4">On the Day</h2>
+          <!-- <h5 class="font-weight-normal text-muted mb-4">Below are some important details about the wedding day:</h5> -->
+
+          <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+              <ul class="list-unstyled">
+                <li class="mb-3"><strong>Dress code:</strong> Cocktail dress code.</li>
+                <li class="mb-3"><strong>Outdoor Ceremony:</strong> Ladies, if the weather is on our side, the ceremony
+                  and drinks reception will be held on grass.</li>
+                <li class="mb-3"><strong>Unplugged Ceremony:</strong> Please no phones during the ceremony - let the
+                  pros do their job! We'll be sharing the photos and videos afterwards.</li>
+                <li class="mb-3"><strong>Plan of the Day:</strong> Detailed schedule will be provided closer to the
+                  date.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Venue Image and Details -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <img class="img-fluid mb-4" src="img/event-1.jpg" alt="Wasing Park">
+          <h4 class="mb-3">Wasing Park</h4>
+          <p class="mb-2">Wasing Park, Wasing Ln, RG7 4NG</p>
+          <p class="mb-2"><a href="https://what3words.com/diamonds.hang.galloped" target="_blank">///diamonds.hang.galloped</a></p>
+          <p class="mb-0">12:00AM - Late</p>
+          <br />
+          <p class="mb-0">Parking Available on site</p>
+        </div>
+      </div>
+
+      <!-- Next Day Section -->
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-12 text-center">
+          <h2 class="font-secondary display-5 mb-4">Next Day</h2>
+          <h5 class="font-weight-normal text-muted mb-4">We look forward to spending more time with you!</h5>
+
+          <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+              <ul class="list-unstyled">
+                <li class="mb-3"><strong>Breakfast:</strong> For those staying at the venue, breakfast will be served at
+                  9:00 AM.</li>
+                <li class="mb-3"><strong>Morning Walk:</strong> Join us for a walk. Meeting at 10:30 AM at the
+                  Silchester
+                  Roman ruins.</li>
+                <li class="mb-3"><strong>Meet at the Pub:</strong> After the walk, we can have a tipple at the local
+                  pub. The Red Lion, RG7 2HU.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
   <!-- Event End -->
+
 
 
   <!-- Friends & Family Start -->
@@ -307,30 +359,16 @@
     <div class="container pt-5 pb-3">
       <div class="section-title position-relative text-center">
         <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Friends & Family</h6>
-        <h1 class="font-secondary display-4">Groomsmen & Bridesmaid</h1>
+        <h1 class="font-secondary display-4">Groomsmen & Bridesmaids</h1>
         <i class="far fa-heart text-dark"></i>
-      </div>
-      <div class="row">
-        <div class="col-12 text-center mb-2">
-          <ul class="list-inline mb-4" id="portfolio-flters">
-            <li class="btn btn-outline-primary font-weight-bold m-1 py-2 px-4" data-filter=".first">Groomsmen</li>
-            <li class="btn btn-outline-primary font-weight-bold m-1 py-2 px-4" data-filter=".second">Bridesmaid</li>
-          </ul>
-        </div>
       </div>
       <div class="row portfolio-container">
         <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
           <div class="position-relative mb-2">
             <img class="img-fluid w-100" src="img/groomsmen-1.jpg" alt="">
             <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Full Name</h4>
-              <p class="text-uppercase">Best Friend</p>
-              <div class="d-inline-block">
-                <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+              <h4 class="mb-3">Sam Walker</h4>
+              <p class="text-uppercase">Best Man</p>
             </div>
           </div>
         </div>
@@ -338,14 +376,8 @@
           <div class="position-relative mb-2">
             <img class="img-fluid w-100" src="img/bridesmaid-1.jpg" alt="">
             <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Full Name</h4>
-              <p class="text-uppercase">Best Friend</p>
-              <div class="d-inline-block">
-                <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+              <h4 class="mb-3">Megan Partington</h4>
+              <p class="text-uppercase">Maid of Honor</p>
             </div>
           </div>
         </div>
@@ -353,14 +385,8 @@
           <div class="position-relative mb-2">
             <img class="img-fluid w-100" src="img/groomsmen-2.jpg" alt="">
             <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Full Name</h4>
-              <p class="text-uppercase">Best Friend</p>
-              <div class="d-inline-block">
-                <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+              <h4 class="mb-3">Holly Vincent</h4>
+              <p class="text-uppercase">Maid of Honor</p>
             </div>
           </div>
         </div>
@@ -368,14 +394,8 @@
           <div class="position-relative mb-2">
             <img class="img-fluid w-100" src="img/bridesmaid-2.jpg" alt="">
             <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Full Name</h4>
-              <p class="text-uppercase">Best Friend</p>
-              <div class="d-inline-block">
-                <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+              <h4 class="mb-3">Keeley Richfield</h4>
+              <p class="text-uppercase">Bridesmaid</p>
             </div>
           </div>
         </div>
@@ -383,14 +403,17 @@
           <div class="position-relative mb-2">
             <img class="img-fluid w-100" src="img/groomsmen-3.jpg" alt="">
             <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Full Name</h4>
-              <p class="text-uppercase">Best Friend</p>
-              <div class="d-inline-block">
-                <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+              <h4 class="mb-3">Josh Hawthornthwaite</h4>
+              <p class="text-uppercase">Groomsmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+          <div class="position-relative mb-2">
+            <img class="img-fluid w-100" src="img/bridesmaid-2.jpg" alt="">
+            <div class="bg-secondary text-center p-4">
+              <h4 class="mb-3">Kelly Hawthornthwaite</h4>
+              <p class="text-uppercase">Bridesmaid</p>
             </div>
           </div>
         </div>
@@ -398,14 +421,26 @@
           <div class="position-relative mb-2">
             <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
             <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Full Name</h4>
-              <p class="text-uppercase">Best Friend</p>
-              <div class="d-inline-block">
-                <a class="mx-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="mx-2" href="#"><i class="fab fa-instagram"></i></a>
-              </div>
+              <h4 class="mb-3">Rob Clarke</h4>
+              <p class="text-uppercase">Groomsmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+          <div class="position-relative mb-2">
+            <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
+            <div class="bg-secondary text-center p-4">
+              <h4 class="mb-3">Harry McGeachy</h4>
+              <p class="text-uppercase">Groomsmen</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
+          <div class="position-relative mb-2">
+            <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
+            <div class="bg-secondary text-center p-4">
+              <h4 class="mb-3">Alfie Sargeant</h4>
+              <p class="text-uppercase">Groomsmen</p>
             </div>
           </div>
         </div>
@@ -475,8 +510,8 @@
   <div class="container-fluid bg-dark text-white py-5" id="contact" style="margin-top: 90px;">
     <div class="container text-center py-5">
       <div class="section-title position-relative text-center">
-        <h1 class="font-secondary display-3 text-white">Thank You</h1>
-        <i class="far fa-heart text-white"></i>
+        <h1 class="font-secondary display-3" style="color: var(--section-border-color);">Thank You</h1>
+        <i class="far fa-heart" style="color: var(--accent-color);"></i>
       </div>
     </div>
   </div>
@@ -498,6 +533,7 @@
   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   <script src="lib/isotope/isotope.pkgd.min.js"></script>
   <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>

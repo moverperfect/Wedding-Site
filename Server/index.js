@@ -6,6 +6,7 @@ const { createClient } = require('@libsql/client');
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const { setCacheHeaders } = require('./setCacheHeaders');
 
 const app = express();
 app.disable('x-powered-by');
@@ -19,7 +20,7 @@ const libsql = createClient({
 const adapter = new PrismaLibSQL(libsql);
 const prisma = new PrismaClient({ adapter });
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(cookieParser());
 
 async function logImageAccess(imageName, ipAddress) {
@@ -74,7 +75,7 @@ app.get('/health', async (req, res) => {
   }
 });
 
-app.get('/', async (req, res) => {
+app.get(['/', '/index.html'], async (req, res) => {
   const flagKey = 'versionone';
   const queryString = req.query[flagKey];
   if (queryString != undefined && queryString === 'false') {
@@ -94,6 +95,8 @@ app.get('/', async (req, res) => {
   res.cookie(flagKey, 'true', { maxAge: 900000, httpOnly: true });
   res.sendFile(`${__dirname}/public/index.html`);
 });
+
+app.use(setCacheHeaders);
 
 app.use(express.static('public'));
 

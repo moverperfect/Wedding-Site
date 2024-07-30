@@ -60,6 +60,11 @@
 
     portfolioIsotope.isotope({ filter: $(this).data('filter') });
   });
+  $('.portfolio-container')
+    .imagesLoaded()
+    .progress(function () {
+      portfolioIsotope.isotope('layout');
+    });
 
   // Back to top button
   $(window).scroll(function () {
