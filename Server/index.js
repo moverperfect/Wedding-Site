@@ -106,6 +106,7 @@ app.post('/submit', urlencodedParser, async (req, res) => {
   let numberOfGuests = req.body.numberOfGuests;
   let isAttending = req.body.isAttending;
   let dietary = req.body.dietary;
+  let morningWalk = req.body.morningWalk;
 
   let clientIp =
     req.headers['x-client-ip'] ||
@@ -113,15 +114,15 @@ app.post('/submit', urlencodedParser, async (req, res) => {
     req.connection.remoteAddress;
 
   let timestamp = new Date().toISOString();
-  const logEntry = `Timestamp: ${timestamp}, Name: ${name}, Email: ${email}, Number of Guests: ${numberOfGuests}, Is Attending: ${isAttending}, Message: ${dietary}, IP: ${clientIp}`;
+  const logEntry = `Timestamp: ${timestamp}, Name: ${name}, Email: ${email}, Number of Guests: ${numberOfGuests}, Is Attending: ${isAttending}, Message: ${dietary}, Morning Walk: ${morningWalk}, IP: ${clientIp}`;
   console.log(logEntry);
-  if (isAttending === 'Attending') {
+  if (isAttending === 'true') {
     res.send(
       '<div class="alert alert-success" role="alert">🎉 Thank You, we look forward celebrating with you! 🎉</div>'
     );
   } else {
     res.send(
-      '<div class="alert alert-danger" role="alert">Sorry you are unable to attend. We look forward to seeing you another time! 😢</div>'
+      '<div class="alert alert-danger" role="alert">Sorry you are unable to attend. We look forward to celebrating with you another time! 😢</div>'
     );
   }
 });

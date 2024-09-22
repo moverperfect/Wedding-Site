@@ -484,37 +484,64 @@
       <div class="row justify-content-center">
         <div class="col-lg-8">
           <div class="text-center">
-            <form hx-post="/submit" hx-target="this" hx-swap="outerHTML">
+            <form hx-post="/submit" hx-target="this" hx-swap="outerHTML" id="form-rsvp">
               <div class="form-row">
                 <div class="form-group col-sm-6">
                   <input name="name" type="text" class="form-control bg-secondary border-0 py-4 px-3"
-                    placeholder="Your Name" required="required" />
+                    placeholder="Your Name" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value == '') { 
+                      this.setCustomValidity('You need to fill this in. Otherwise we\'ll assume your a Megan.'); 
+                      htmx.find('#form-rsvp').reportValidity(); 
+                    }" />
                 </div>
                 <div class="form-group col-sm-6">
                   <input name="email" type="email" class="form-control bg-secondary border-0 py-4 px-3"
-                    placeholder="Your Email" required="required" />
+                    placeholder="Your Email" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value == '') {
+                      this.setCustomValidity('How will we contact you?'); 
+                      htmx.find('#form-rsvp').reportValidity();
+                    }" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-sm-6">
-                  <select name="numberOfGuests" class="form-control bg-secondary border-0" style="height: 52px;">
-                    <option>Number of Guests</option>
+                  <select id="isAttending" name="isAttending" class="form-control bg-secondary border-0"
+                    style="height: 52px;" onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value == '') {
+                    this.setCustomValidity('You need to fill this in'); 
+                    htmx.find('#form-rsvp').reportValidity(); 
+                  }">
+                    <option value="" disabled selected hidden>Will you be attending?</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                </div>
+                <div class="form-group col-sm-6">
+                  <select id="numberOfGuests" name="numberOfGuests" class="form-control bg-secondary border-0"
+                    style="height: 52px;" onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="console.log(htmx.find('#isAttending').value); if (htmx.find('#isAttending').value == 'true' && this.value == '') {
+                      this.setCustomValidity('You need to fill this in'); 
+                      htmx.find('#form-rsvp').reportValidity(); 
+                    }">
+                    <option value="" disabled selected hidden>Number of Guests?</option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                   </select>
                 </div>
-                <div class="form-group col-sm-6">
-                  <select name="isAttending" class="form-control bg-secondary border-0" style="height: 52px;">
-                    <option>Attending</option>
-                    <option>Unable To Attend</option>
-                  </select>
-                </div>
               </div>
               <div class="form-group">
-                <textarea name="dietary" class="form-control bg-secondary border-0 py-2 px-3" rows="5"
+                <textarea name="dietary" class="form-control bg-secondary border-0 py-2 px-3" rows="3"
                   placeholder="Dietary Requirements"></textarea>
+              </div>
+              <div class="form-group">
+                <select name="morningWalk" class="form-control bg-secondary border-0" style="height: 52px;"
+                  onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (htmx.find('#isAttending').value == 'true' && this.value == '') {
+                    this.setCustomValidity('You need to fill this in'); 
+                    htmx.find('#form-rsvp').reportValidity(); 
+                  }">
+                  <option value="" disabled selected hidden>Will you be joining us for a walk the day after?
+                  </option>
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
               </div>
               <div>
                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Submit</button>
@@ -541,7 +568,7 @@
 
 
   <!-- Scroll to About -->
-  <a href="#about" class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></a>
+  <a href="#about" class="fa fa-2x fa-angle-down text-white scroll-to-bottom" style="color: var(--nav-text-color);"></a>
 
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -574,26 +601,6 @@
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var elements = document.getElementsByTagName("INPUT");
-      for (var i = 0; i < elements.length; i++) {
-        elements[i].oninvalid = function(e) {
-          e.target.setCustomValidity("");
-          if (!e.target.validity.valid) {
-            if (e.target.name === "name") {
-              e.target.setCustomValidity("You need to fill this in. Otherwise we'll assume your a Megan.");
-            } else if (e.target.name === "email") {
-              e.target.setCustomValidity("How will we contact you?");
-            }
-          }
-        };
-        elements[i].oninput = function(e) {
-          e.target.setCustomValidity("");
-        };
-      }
-    })
-  </script>
 </body>
 
 </html>
