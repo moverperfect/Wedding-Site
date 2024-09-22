@@ -48,7 +48,6 @@ app.get('/health', async (req, res) => {
   try {
     const files = await fs.readdir(`${__dirname}/invitations`);
     if (files.length === 0) {
-      throw new Error('No images found in invitations folder');
     }
 
     await prisma.$connect();
