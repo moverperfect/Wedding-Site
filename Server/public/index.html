@@ -487,14 +487,14 @@
               <div class="form-row">
                 <div class="form-group col-sm-6">
                   <input name="name" type="text" class="form-control bg-secondary border-0 py-4 px-3"
-                    placeholder="Your Name" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value == '') { 
-                      this.setCustomValidity('You need to fill this in. Otherwise we\'ll assume you're a Megan.'); 
+                    placeholder="Your Name" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value === '') { 
+                      this.setCustomValidity('You need to fill this in. Otherwise we\'ll assume you\'re a Megan.'); 
                       htmx.find('#form-rsvp').reportValidity(); 
                     }" />
                 </div>
                 <div class="form-group col-sm-6">
                   <input name="email" type="email" class="form-control bg-secondary border-0 py-4 px-3"
-                    placeholder="Your Email" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value == '') {
+                    placeholder="Your Email" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value === '') {
                       this.setCustomValidity('How will we contact you?'); 
                       htmx.find('#form-rsvp').reportValidity();
                     }" />
@@ -503,7 +503,7 @@
               <div class="form-row">
                 <div class="form-group col-sm-6">
                   <select id="isAttending" name="isAttending" class="form-control bg-secondary border-0"
-                    style="height: 52px;" onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value == '') {
+                    style="height: 52px;" onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value === '') {
                     this.setCustomValidity('You need to fill this in'); 
                     htmx.find('#form-rsvp').reportValidity(); 
                   }">
@@ -514,7 +514,7 @@
                 </div>
                 <div class="form-group col-sm-6">
                   <select id="numberOfGuests" name="numberOfGuests" class="form-control bg-secondary border-0"
-                    style="height: 52px;" onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="console.log(htmx.find('#isAttending').value); if (htmx.find('#isAttending').value == 'true' && this.value == '') {
+                    style="height: 52px;" onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="console.log(htmx.find('#isAttending').value); if (htmx.find('#isAttending').value === 'true' && this.value === '') {
                       this.setCustomValidity('You need to fill this in'); 
                       htmx.find('#form-rsvp').reportValidity(); 
                     }">
@@ -532,7 +532,7 @@
               </div>
               <div class="form-group">
                 <select name="morningWalk" class="form-control bg-secondary border-0" style="height: 52px;"
-                  onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (htmx.find('#isAttending').value == 'true' && this.value == '') {
+                  onchange="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (htmx.find('#isAttending').value === 'true' && this.value === '') {
                     this.setCustomValidity('You need to fill this in'); 
                     htmx.find('#form-rsvp').reportValidity(); 
                   }">
