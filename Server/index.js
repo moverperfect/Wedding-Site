@@ -77,17 +77,19 @@ app.get('/health', async (req, res) => {
 app.get(['/', '/index.html'], async (req, res) => {
   const flagKey = 'versionone';
   const queryString = req.query[flagKey];
-  if (queryString != undefined && queryString === 'false') {
+  const cookieFlag = req.cookies[flagKey];
+
+  if (queryString === 'false') {
     res.sendFile(`${__dirname}/public/coming_soon.html`);
     // Delete the cookie
     res.clearCookie(flagKey);
     return;
   }
-  if (req.cookies[flagKey] === 'true') {
+  if (cookieFlag === 'true') {
     res.sendFile(`${__dirname}/public/index.html`);
     return;
   }
-  if (req.query[flagKey] === undefined) {
+  if (queryString === undefined) {
     res.sendFile(`${__dirname}/public/coming_soon.html`);
     return;
   }
