@@ -4,7 +4,6 @@ const { PrismaClient } = require('@prisma/client');
 const { PrismaLibSQL } = require('@prisma/adapter-libsql');
 const { createClient } = require('@libsql/client');
 const fs = require('fs').promises;
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { setCacheHeaders } = require('./setCacheHeaders');
 
@@ -20,7 +19,7 @@ const libsql = createClient({
 const adapter = new PrismaLibSQL(libsql);
 const prisma = new PrismaClient({ adapter });
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = express.urlencoded({ extended: false });
 app.use(cookieParser());
 
 async function logImageAccess(imageName, ipAddress) {
