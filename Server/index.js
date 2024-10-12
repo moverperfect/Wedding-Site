@@ -35,7 +35,7 @@ const submitSchema = z
     if (data.isAttending) {
       if (
         data.numberOfGuests === undefined ||
-        isNaN(data.numberOfGuests) ||
+        Number.isNaN(data.numberOfGuests) ||
         data.numberOfGuests === '' ||
         data.numberOfGuests < 1
       ) {
@@ -125,25 +125,20 @@ app.get('/health', async (req, res) => {
 
 app.get(['/', '/index.html'], async (req, res) => {
   const flagKey = 'versionone';
-  const queryString = req.query[flagKey];
+  const queryFlag = req.query[flagKey];
   const cookieFlag = req.cookies[flagKey];
 
-  if (queryString === 'false') {
-    res.sendFile(`${__dirname}/public/coming_soon.html`);
-    // Delete the cookie
+  if (queryFlag === 'false') {
     res.clearCookie(flagKey);
-    return;
+    return res.sendFile(`${__dirname}/public/coming_soon.html`);
   }
-  if (cookieFlag === 'true') {
-    res.sendFile(`${__dirname}/public/index.html`);
-    return;
+
+  if (cookieFlag === 'true' || queryFlag === '' || queryFlag === 'true') {
+    res.cookie(flagKey, 'true', { maxAge: 900000, httpOnly: true });
+    return res.sendFile(`${__dirname}/public/index.html`);
   }
-  if (queryString === undefined) {
-    res.sendFile(`${__dirname}/public/coming_soon.html`);
-    return;
-  }
-  res.cookie(flagKey, 'true', { maxAge: 900000, httpOnly: true });
-  res.sendFile(`${__dirname}/public/index.html`);
+
+  res.sendFile(`${__dirname}/public/coming_soon.html`);
 });
 
 app.use(setCacheHeaders);
@@ -178,12 +173,11 @@ app.post('/submit', urlencodedParser, async (req, res) => {
     if (error instanceof ZodError) {
       let message = '';
       error.issues.forEach((issue) => {
-        const fieldName = issue.path.join('.');
         message += `<div class="alert alert-danger" role="alert">${issue.message}</div>`;
       });
       res.status(400).send(message);
     } else {
-      console.error('An unexpected error occurred:', err);
+      console.error('An unexpected error occurred:', error);
       res
         .status(500)
         .send(

@@ -1,9 +1,7 @@
-const { RequestHandler } = require('express');
-
 /**
  * Set cache headers for an Express request.
  */
-const setCacheHeaders = async (req, res, next) => {
+const setCacheHeaders = (req, res, next) => {
   const doNotCache = () => {
     res.setHeader('Cache-Control', 'no-cache');
     next();
@@ -15,16 +13,33 @@ const setCacheHeaders = async (req, res, next) => {
     next();
   };
 
+  const CACHEABLE_EXTENSIONS = [
+    'css',
+    'js',
+    'svg',
+    'css.map',
+    'js.map',
+    'png',
+    'jpg',
+    'jpeg',
+    'gif',
+    'webp',
+    'ico',
+    'xml',
+    'json',
+    'txt',
+    'woff2',
+    'woff',
+  ];
+
   if (req.method !== 'GET') {
     return doNotCache();
   }
 
   switch (true) {
-    case !!req.url.match(
-      /^\/.*\.(css|js|svg|css\.map|js\.map|png|jpg|jpeg|gif|webp|ico|xml|json|txt|woff2|woff)$/g
-    ):
+    case CACHEABLE_EXTENSIONS.some((ext) => req.url.endsWith(`.${ext}`)):
       return cacheForOneDay();
-    
+
     default:
       return doNotCache();
   }
