@@ -9,12 +9,6 @@ const setCacheHeaders = async (req, res, next) => {
     next();
   };
 
-  const cacheIndefinitely = () => {
-    // 31557600 = 365.25 days
-    res.setHeader('Cache-Control', 'public, max-age=31557600');
-    next();
-  };
-
   const cacheForOneDay = () => {
     // 86400 seconds = 1 day
     res.setHeader('Cache-Control', 'public, max-age=86400');
@@ -30,8 +24,10 @@ const setCacheHeaders = async (req, res, next) => {
       /^\/.*\.(css|js|svg|css\.map|js\.map|png|jpg|jpeg|gif|webp|ico|xml|json|txt|woff2|woff)$/g
     ):
       return cacheForOneDay();
+    
+    default:
+      return doNotCache();
   }
-  return doNotCache();
 };
 
 module.exports = {
