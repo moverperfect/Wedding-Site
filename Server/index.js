@@ -6,6 +6,55 @@ const { createClient } = require('@libsql/client');
 const fs = require('fs').promises;
 const cookieParser = require('cookie-parser');
 const { setCacheHeaders } = require('./setCacheHeaders');
+const { z, ZodError } = require('zod');
+
+const submitSchema = z
+  .object({
+    name: z.string().min(1, { message: 'Please enter your name.' }),
+    email: z.string().email({ message: 'Please enter a valid email address.' }),
+    isAttending: z
+      .enum(['true', 'false'], {
+        errorMap: () => ({ message: 'Please indicate if you are attending.' }),
+      })
+      .transform((val) => val === 'true'),
+    numberOfGuests: z.coerce
+      .number({ invalid_type_error: 'Please enter a valid number of guests.' })
+      .or(z.literal('')),
+    dietary: z.string().optional(),
+    morningWalk: z
+      .enum(['true', 'false'], {
+        errorMap: () => ({
+          message:
+            'Please indicate if you are joining us for a walk the day after.',
+        }),
+      })
+      .transform((val) => val === 'true')
+      .or(z.literal('')),
+  })
+  .superRefine((data, ctx) => {
+    if (data.isAttending) {
+      if (
+        data.numberOfGuests === undefined ||
+        isNaN(data.numberOfGuests) ||
+        data.numberOfGuests === '' ||
+        data.numberOfGuests < 1
+      ) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: 'Please enter the number of guests.',
+          path: ['numberOfGuests'],
+        });
+      }
+      if (data.morningWalk === undefined || data.morningWalk === '') {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message:
+            'Please indicate if you are joining us for a walk the day after.',
+          path: ['morningWalk'],
+        });
+      }
+    }
+  });
 
 const app = express();
 app.disable('x-powered-by');
@@ -102,29 +151,45 @@ app.use(setCacheHeaders);
 app.use(express.static('public'));
 
 app.post('/submit', urlencodedParser, async (req, res) => {
-  let name = req.body.name;
-  let email = req.body.email;
-  let numberOfGuests = req.body.numberOfGuests;
-  let isAttending = req.body.isAttending;
-  let dietary = req.body.dietary;
-  let morningWalk = req.body.morningWalk;
+  try {
+    const validatedData = submitSchema.parse(req.body);
 
-  let clientIp =
-    req.headers['x-client-ip'] ||
-    req.headers['x-forwarded-for'] ||
-    req.connection.remoteAddress;
+    const { name, email, numberOfGuests, isAttending, dietary, morningWalk } =
+      validatedData;
 
-  let timestamp = new Date().toISOString();
-  const logEntry = `Timestamp: ${timestamp}, Name: ${name}, Email: ${email}, Number of Guests: ${numberOfGuests}, Is Attending: ${isAttending}, Message: ${dietary}, Morning Walk: ${morningWalk}, IP: ${clientIp}`;
-  console.log(logEntry);
-  if (isAttending === 'true') {
-    res.send(
-      '<div class="alert alert-success" role="alert">🎉 Thank You, we look forward celebrating with you! 🎉</div>'
-    );
-  } else {
-    res.send(
-      '<div class="alert alert-danger" role="alert">Sorry you are unable to attend. We look forward to celebrating with you another time! 😢</div>'
-    );
+    let clientIp =
+      req.headers['x-client-ip'] ||
+      req.headers['x-forwarded-for'] ||
+      req.connection.remoteAddress;
+
+    let timestamp = new Date().toISOString();
+    const logEntry = `Timestamp: ${timestamp}, Name: ${name}, Email: ${email}, Number of Guests: ${numberOfGuests}, Is Attending: ${isAttending}, Message: ${dietary}, Morning Walk: ${morningWalk}, IP: ${clientIp}`;
+    console.log(logEntry);
+    if (isAttending === true) {
+      res.send(
+        '<div class="alert alert-success" role="alert">🎉 Thank You, we look forward celebrating with you! 🎉</div>'
+      );
+    } else {
+      res.send(
+        '<div class="alert alert-danger" role="alert">Sorry you are unable to attend. We look forward to celebrating with you another time! 😢</div>'
+      );
+    }
+  } catch (error) {
+    if (error instanceof ZodError) {
+      let message = '';
+      error.issues.forEach((issue) => {
+        const fieldName = issue.path.join('.');
+        message += `<div class="alert alert-danger" role="alert">${issue.message}</div>`;
+      });
+      res.status(400).send(message);
+    } else {
+      console.error('An unexpected error occurred:', err);
+      res
+        .status(500)
+        .send(
+          '<div class="alert alert-danger" role="alert">An unexpected error occurred. Please try again later.</div>'
+        );
+    }
   }
 });
 

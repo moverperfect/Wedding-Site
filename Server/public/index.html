@@ -484,15 +484,13 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="text-center">
-            <form hx-post="/submit" hx-target="this" hx-swap="outerHTML" id="form-rsvp">
+          <div class="text-center" id="form-result" hx-ext="response-targets">
+            <form hx-post="/submit" hx-target="#form-result" hx-swap="innerHTML" id="form-rsvp"
+              hx-target-error="#form-error">
               <div class="form-row">
                 <div class="form-group col-sm-6">
                   <input name="name" type="text" class="form-control bg-secondary border-0 py-4 px-3"
-                    placeholder="Your Name" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value === '') { 
-                      this.setCustomValidity('You need to fill this in. Otherwise we\'ll assume you\'re a Megan.'); 
-                      htmx.find('#form-rsvp').reportValidity(); 
-                    }" />
+                    placeholder="Your Name" />
                 </div>
                 <div class="form-group col-sm-6">
                   <input name="email" type="email" class="form-control bg-secondary border-0 py-4 px-3"
@@ -544,8 +542,10 @@
                   <option value="false">No</option>
                 </select>
               </div>
-              <div>
+              <div class="form-group">
                 <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Submit</button>
+              </div>
+              <div id="form-error">
               </div>
             </form>
           </div>
@@ -599,6 +599,8 @@
     integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.9.12/dist/htmx.min.js"
     integrity="sha256-RJMXreeIHpSVENthSZHhlcOgmcTHkcJNrOxV+fSipFI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/htmx-ext-response-targets@2.0.1/response-targets.min.js"
+    integrity="sha256-0NxOMX/olxaAJZbINvI6oJ38BxK6vVL9gjdRKD2+HFk=" crossorigin="anonymous"></script>
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
