@@ -74,7 +74,7 @@
     <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
-          <img class="position-absolute w-100 h-100" src="img/carousel-1.png" style="object-fit: cover; opacity: 0.8;">
+          <img class="position-absolute w-100 h-100" src="img/carousel-1.png" style="object-fit: cover;">
           <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
             <div class="p-3" style="max-width: 900px;">
               <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Jack & Eleanor</h1>
@@ -83,6 +83,7 @@
                   married</h3>
               </div>
             </div>
+            <div style="min-height: 200px;"></div>
           </div>
         </div>
         <!-- <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
@@ -179,7 +180,7 @@
               <p class="text-uppercase mb-2">17<span style="text-transform: lowercase !important">th</span> April 2017
               </p>
               <p class="m-0">Two weeks later and Jack took Eleanor to the steak house chain, Cau, in Reading. We have
-                been back there even after is changed hands and highly recommend it!</p>
+                been back there even after it changed hands and highly recommend it!</p>
             </div>
           </div>
           <div class="col-md-6 text-center text-md-left">
@@ -218,7 +219,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 text-center text-md-right">
-            <img class="img-fluid mr-md-3" src="img/story-3.jpg" alt="">
+            <img class="img-fluid mr-md-3" src="img/story-5.jpg" alt="">
           </div>
           <div class="col-md-6 text-center text-md-left">
             <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
@@ -301,9 +302,25 @@
         <i class="far fa-heart text-dark"></i>
       </div>
 
+      <div class="row justify-content-center mb-4">
+        <!-- Venue Image and Details -->
+        <div class="col-md-4 text-center">
+          <img class="img-fluid mb-4" src="img/event-1.jpg" alt="Wasing Park">
+        </div>
+        <div class="col-md-4 text-center">
+          <br />
+          <h5 class="mb-3">Wasing Park</h5>
+          <p class="mb-2">Wasing Park, Wasing Ln, RG7 4NG</p>
+          <p class="mb-2"><a href="https://what3words.com/diamonds.hang.galloped"
+              target="_blank">///diamonds.hang.galloped</a></p>
+          <p class="mb-0"><strong>Tuesday 27th May 2025</strong></p>
+          <p class="mb-0"><strong>12:00PM - Late</strong></p>
+        </div>
+      </div>
+
       <!-- On the Day Section -->
       <div class="row justify-content-center mb-4">
-        <div class="col-md-6 text-center">
+        <div class="col-md-5 text-center">
           <h4 class="display-5 mb-4">On the Day</h4>
           <!-- <h5 class="font-weight-normal text-muted mb-4">Below are some important details about the wedding day:</h5> -->
           <div class="row justify-content-center">
@@ -322,24 +339,38 @@
             </div>
           </div>
         </div>
-
-        <!-- Venue Image and Details -->
-        <div class="col-md-6 text-center">
-          <img class="img-fluid mb-4" src="img/event-1.jpg" alt="Wasing Park">
-          <h5 class="mb-3">Wasing Park</h5>
-          <p class="mb-2">Wasing Park, Wasing Ln, RG7 4NG</p>
-          <p class="mb-2"><a href="https://what3words.com/diamonds.hang.galloped"
-              target="_blank">///diamonds.hang.galloped</a></p>
-          <p class="mb-0"><strong>Tuesday 27th May 2025</strong></p>
-          <p class="mb-0"><strong>12:00PM - Late</strong></p>
+        <!-- Schedule Section -->
+        <div class="col-md-5 text-center">
+          <h4 class="display-5 mb-4">Schedule</h4>
+          <div class="row justify-content-center mb-4">
+            <div class="col-2">
+              <ul class="list-unstyled">
+                <br />
+                <li class="mb-3"><strong>11:45</strong></li>
+                <li class="mb-3"><strong>12:15</strong></li>
+                <li class="mb-3"><strong>15:30</strong></li>
+                <li class="mb-3"><strong>18:30</strong></li>
+                <li class="mb-3"><strong>23:30</strong></li>
+              </ul>
+            </div>
+            <div class="col-5">
+              <ul class="list-unstyled">
+                <br />
+                <li class="mb-3">Arrive</li>
+                <li class="mb-3">Ceremony</li>
+                <li class="mb-3">Wedding Breakfast</li>
+                <li class="mb-3">Evening Party</li>
+                <li class="mb-3">End of the night</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- On the Day Section -->
-      <div class="row justify-content-center mb-5">
+      <!-- Accomodation Section -->
+      <div class="row justify-content-center mt-5">
         <div class="col-md-12 text-center">
           <h4 class="display-5 mb-4">Accommodation</h4>
-          <!-- <h5 class="font-weight-normal text-muted mb-4">Below are some important details about the wedding day:</h5> -->
           <div class="row justify-content-center">
             <div class="col-md-12 text-center">
               <ul class="list-unstyled">
@@ -376,103 +407,17 @@
   </div>
   <!-- Event End -->
 
-
-
-  <!-- Friends & Family Start -->
-  <div class="container-fluid py-5" id="family">
-    <div class="container pt-5 pb-3">
+  <!-- Event Start -->
+  <div class="container-fluid" id="event">
+    <div class="container py-5">
+      <!-- Section Title -->
       <div class="section-title position-relative text-center">
-        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Friends & Family</h6>
-        <h1 class="font-secondary display-4">Groomsmen & Bridesmaids</h1>
+        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Registry</h6>
+        <h1 class="font-secondary display-4">Our Wedding Wishlist</h1>
         <i class="far fa-heart text-dark"></i>
-      </div>
-      <div class="row portfolio-container">
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/groomsmen-1.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Sam Walker</h4>
-              <p class="text-uppercase">Best Man</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/bridesmaid-1.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Megan Partington</h4>
-              <p class="text-uppercase">Maid of Honor</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/groomsmen-2.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Holly Vincent</h4>
-              <p class="text-uppercase">Maid of Honor</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/bridesmaid-2.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Keeley Richfield</h4>
-              <p class="text-uppercase">Bridesmaid</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item first">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/groomsmen-3.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Josh Hawthornthwaite</h4>
-              <p class="text-uppercase">Groomsmen</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/bridesmaid-2.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Kelly Hawthornthwaite</h4>
-              <p class="text-uppercase">Bridesmaid</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Rob Clarke</h4>
-              <p class="text-uppercase">Groomsmen</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Harry McGeachy</h4>
-              <p class="text-uppercase">Groomsmen</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4 portfolio-item second">
-          <div class="position-relative mb-2">
-            <img class="img-fluid w-100" src="img/bridesmaid-3.jpg" alt="">
-            <div class="bg-secondary text-center p-4">
-              <h4 class="mb-3">Alfie Sargeant</h4>
-              <p class="text-uppercase">Groomsmen</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  <!-- Friends & Family End -->
-
 
   <!-- RSVP Start -->
   <div class="container-fluid py-5" id="rsvp">
@@ -490,7 +435,10 @@
               <div class="form-row">
                 <div class="form-group col-sm-6">
                   <input name="name" type="text" class="form-control bg-secondary border-0 py-4 px-3"
-                    placeholder="Your Name" />
+                    placeholder="Your Name" onkeyup="this.setCustomValidity('')" hx-on:htmx:validation:validate="if (this.value === '') { 
+                      this.setCustomValidity('You need to fill this in. Otherwise we\'ll assume you\'re a Megan.'); 
+                      htmx.find('#form-rsvp').reportValidity(); 
+                    }" />
                 </div>
                 <div class="form-group col-sm-6">
                   <input name="email" type="email" class="form-control bg-secondary border-0 py-4 px-3"
