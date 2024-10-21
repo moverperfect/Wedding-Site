@@ -2,7 +2,6 @@ name: Deploy website
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
   push:
     branches:
       - main
@@ -24,12 +23,11 @@ jobs:
           script_stop: true
           script: |
             cd ~/SaveTheDate-Emailer
-            git fetch origin
-            git reset --hard origin/main
-            git pull origin ${{ github.head_ref }}
+            git fetch origin ${{ github.ref }}:${{ github.ref }} --force
+            git reset --hard FETCH_HEAD
 
             cd Server
-            docker build -t wedding:${{ github.event.number }} .
+            docker build --build-arg NODE_VERSION=$(cat ../.nvmrc | tr -cd [:digit:].) -t wedding:${{ github.event.number }} .
             docker stop test_wedding || true
             docker rm test_wedding || true
             docker run -d --restart unless-stopped --net=docker_backend --ip=172.20.2.2 --name test_wedding --env-file ../../test.env -v /home/${{ secrets.USERNAME }}/invitations:/usr/src/app/invitations:ro wedding:${{ github.event.number }}
@@ -56,7 +54,7 @@ jobs:
 
             cd Server
             # Tag the image with the commit hash
-            docker build -t wedding:${{ github.sha }} .
+            docker build --build-arg NODE_VERSION=$(cat ../.nvmrc | tr -cd [:digit:].) -t wedding:${{ github.sha }} .
             docker stop live_wedding|| true
             docker rm live_wedding || true
             docker run -d --restart unless-stopped --net=docker_backend --ip=172.20.2.1 --name live_wedding --env-file ../../production.env -v /home/${{ secrets.USERNAME }}/invitations:/usr/src/app/invitations:ro wedding:${{ github.sha }}
