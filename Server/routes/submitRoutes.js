@@ -1,10 +1,10 @@
-const express = require('express');
-const submitController = require('../controllers/submitController');
-
-const urlencodedParser = express.urlencoded({ extended: false });
+import express from 'express';
+import { handleFormSubmission } from '../controllers/submitController.js';
 
 const router = express.Router();
 
-router.post('/submit', urlencodedParser, submitController.handleFormSubmission);
+router.use(express.urlencoded({ extended: false }));
 
-module.exports = router;
+router.post('', handleFormSubmission);
+
+export default router;

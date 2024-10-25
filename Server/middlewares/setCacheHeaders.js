@@ -1,4 +1,4 @@
-module.exports = (req, res, next) => {
+export default (req, res, next) => {
   const doNotCache = () => {
     res.setHeader('Cache-Control', 'no-cache');
     next();

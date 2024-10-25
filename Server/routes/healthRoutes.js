@@ -1,8 +1,9 @@
-const express = require('express');
-const healthController = require('../controllers/healthController');
+import express from 'express';
+import { checkHealth } from '../controllers/healthController.js';
+import basicAuth from '../middlewares/basicAuth.js';
 
 const router = express.Router();
 
-router.get('/health', healthController.checkHealth);
+router.get('', basicAuth, checkHealth);
 
-module.exports = router;
+export default router;

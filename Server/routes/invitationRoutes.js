@@ -1,10 +1,10 @@
-const express = require('express');
-const { getInvitation } = require('../controllers/invitationController');
+import express from 'express';
+import { getInvitation } from '../controllers/invitationController.js';
 
 const router = express.Router();
 
-router.get('/invitation/:imageName', async (req, res) => {
-  getInvitation(req, res);
+router.get('/:imageName', async (req, res, next) => {
+  getInvitation(req, res).catch(next);
 });
 
-module.exports = router;
+export default router;

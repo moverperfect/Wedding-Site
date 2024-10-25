@@ -1,8 +1,26 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-exports.renderHomePage = async (req, res) => {
-  const flagKey = 'versionone';
-  const queryFlag = req.query[flagKey];
+const CONFIG = {
+  flags: {
+    VERSION_ONE: 'versionone',
+  },
+};
+
+const COOKIE_OPTIONS = {
+  maxAge: 900000,
+  httpOnly: true,
+  secure: true,
+  sameSite: 'strict',
+};
+
+export const renderHomePage = (req, res) => {
+  const flagKey = CONFIG.flags.VERSION_ONE;
+  const queryFlag =
+    typeof req.query[flagKey] === 'string'
+      ? req.query[flagKey]
+      : String(req.query[flagKey]) || '';
   const cookieFlag = req.cookies[flagKey];
 
   if (queryFlag === 'false') {
@@ -10,8 +28,8 @@ exports.renderHomePage = async (req, res) => {
     return res.sendFile(path.join(__dirname, '../public/coming_soon.html'));
   }
 
-  if (cookieFlag === 'true' || queryFlag === '' || queryFlag === 'true') {
-    res.cookie(flagKey, 'true', { maxAge: 900000, httpOnly: true });
+  if (cookieFlag === 'true' || ['', 'true'].includes(queryFlag)) {
+    res.cookie(flagKey, 'true', COOKIE_OPTIONS);
     return res.sendFile(path.join(__dirname, '../public/index.html'));
   }
 

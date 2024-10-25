@@ -1,17 +1,15 @@
-const submitSchema = require('../models/submitSchema');
-const { ZodError } = require('zod');
+import submitSchema from '../models/submitSchema.js';
+import { ZodError } from 'zod';
+import getClientIp from '../utils/network.js';
 
-exports.handleFormSubmission = async (req, res) => {
+export const handleFormSubmission = async (req, res) => {
   try {
     const validatedData = submitSchema.parse(req.body);
 
     const { name, email, numberOfGuests, isAttending, dietary, morningWalk } =
       validatedData;
 
-    let clientIp =
-      req.headers['x-client-ip'] ||
-      req.headers['x-forwarded-for'] ||
-      req.connection.remoteAddress;
+    const clientIp = getClientIp(req);
 
     let timestamp = new Date().toISOString();
     const logEntry = `Timestamp: ${timestamp}, Name: ${name}, Email: ${email}, Number of Guests: ${numberOfGuests}, Is Attending: ${isAttending}, Message: ${dietary}, Morning Walk: ${morningWalk}, IP: ${clientIp}`;

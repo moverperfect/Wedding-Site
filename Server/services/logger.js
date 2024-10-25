@@ -1,7 +1,10 @@
-// services/logger.js
-const prisma = require('../config/database');
+import prisma from '../config/database.js';
 
-async function logImageAccess(imageName, ipAddress) {
+export async function logImageAccess(imageName, ipAddress) {
+  if (!imageName || !ipAddress) {
+    throw new Error('Image name and IP address are required');
+  }
+
   try {
     await prisma.logEntry.create({
       data: {
@@ -10,10 +13,11 @@ async function logImageAccess(imageName, ipAddress) {
       },
     });
   } catch (error) {
-    console.error('Failed to log image access:', error);
+    console.error('Failed to log image access:', {
+      error: error.message,
+      imageName,
+      timestamp: new Date().toISOString(),
+    });
+    throw new Error('Failed to log image access');
   }
 }
-
-module.exports = {
-  logImageAccess,
-};
