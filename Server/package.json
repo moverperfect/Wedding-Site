@@ -8,6 +8,7 @@
   },
   "author": "Jack Moorhouse",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@libsql/client": "0.6.2",
     "@prisma/adapter-libsql": "5.21.1",

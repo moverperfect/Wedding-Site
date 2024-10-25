@@ -1,7 +1,4 @@
-/**
- * Set cache headers for an Express request.
- */
-const setCacheHeaders = (req, res, next) => {
+export default (req, res, next) => {
   const doNotCache = () => {
     res.setHeader('Cache-Control', 'no-cache');
     next();
@@ -43,8 +40,4 @@ const setCacheHeaders = (req, res, next) => {
     default:
       return doNotCache();
   }
-};
-
-module.exports = {
-  setCacheHeaders,
 };
