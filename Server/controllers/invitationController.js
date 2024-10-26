@@ -1,14 +1,12 @@
 import { logImageAccess } from '../services/logger.js';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
 import getClientIp from '../utils/network.js';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { CONFIG } from '../config/config.js';
 
 export const getInvitation = async (req, res) => {
   const imageName = path.basename(req.params.imageName);
-  const invitationsDir = path.join(__dirname, '../invitations');
+  const invitationsDir = path.join(CONFIG.dirname, '../invitations');
   const userFilename = path.join(invitationsDir, imageName);
   const ALLOWED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif'];
   if (!ALLOWED_EXTENSIONS.includes(path.extname(imageName))) {
