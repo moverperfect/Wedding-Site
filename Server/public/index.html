@@ -54,15 +54,14 @@
         <a href="#story" class="nav-item nav-link">Story</a>
         <a href="#gallery" class="nav-item nav-link">Gallery</a>
       </div>
-      <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+      <a href="./" class="navbar-brand mx-5 d-none d-lg-block">
         <h1 class="font-secondary text-white mb-n2" style="color: var(--accent-color);">Jack <span
             class="text-primary">&</span> Eleanor</h1>
       </a>
       <div class="navbar-nav mr-auto py-0">
-        <a href="#family" class="nav-item nav-link">Family</a>
         <a href="#event" class="nav-item nav-link">Event</a>
+        <a href="#registry" class="nav-item nav-link">Registry</a>
         <a href="#rsvp" class="nav-item nav-link">RSVP</a>
-        <a href="#contact" class="nav-item nav-link">Contact</a>
       </div>
     </div>
   </nav>
@@ -71,44 +70,18 @@
 
   <!-- Carousel Start -->
   <div class="container-fluid p-0 mb-5 pb-5" id="home">
-    <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item position-relative active" style="height: 100vh; min-height: 400px;">
-          <img class="position-absolute w-100 h-100" src="img/carousel-1.png" style="object-fit: cover;">
-          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <div class="p-3" style="max-width: 900px;">
-              <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Jack & Eleanor</h1>
-              <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting
-                  married</h3>
-              </div>
-            </div>
-            <div style="min-height: 200px;"></div>
+    <div class="position-relative" style="height: 100vh; min-height: 400px;">
+      <img class="position-absolute w-100 h-100" src="img/carousel-1.png" style="object-fit: cover;">
+      <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+        <div class="p-3" style="max-width: 900px;">
+          <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Jack & Eleanor</h1>
+          <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
+            <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting
+              married</h3>
           </div>
         </div>
-        <!-- <div class="carousel-item position-relative" style="height: 100vh; min-height: 400px;">
-          <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
-          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <div class="p-3" style="max-width: 900px;">
-              <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Jack & Eleanor</h1>
-              <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting
-                  married</h3>
-              </div>
-            </div>
-          </div>
-        </div> -->
+        <div style="min-height: 200px;"></div>
       </div>
-      <!-- <a class="carousel-control-prev justify-content-start" href="#header-carousel" data-slide="prev">
-        <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-          <span class="carousel-control-prev-icon mt-3"></span>
-        </div>
-      </a>
-      <a class="carousel-control-next justify-content-end" href="#header-carousel" data-slide="next">
-        <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-          <span class="carousel-control-next-icon mt-3"></span>
-        </div>
-      </a> -->
     </div>
   </div>
   <!-- Carousel End -->
@@ -244,13 +217,23 @@
 
 
   <!-- Gallery Start -->
-  <div class="container-fluid bg-gallery" id="gallery" style="padding: 120px 0; margin: 90px 0;">
+  <div class="container-fluid bg-gallery" id="gallery"
+    style="padding: 120px 0; margin: 90px 0; background-position: top center;">
     <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
       <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Gallery</h6>
       <h1 class="font-secondary display-4 text-white">Our Photo Gallery</h1>
       <i class="far fa-heart text-white"></i>
     </div>
+    <style>
+      @media (min-width: 576px) {
+        .owl-item:has(#empty-gallery-item) {
+          display: none;
+        }
+      }
+    </style>
     <div class="owl-carousel gallery-carousel">
+      <div class="gallery-item" id="empty-gallery-item">
+      </div>
       <div class="gallery-item">
         <img class="img-fluid w-100" src="img/gallery-1.jpg" alt="">
         <a href="img/gallery-1.jpg" data-lightbox="gallery">
@@ -287,6 +270,54 @@
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-7.jpg" alt="">
+        <a href="img/gallery-7.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-8.jpg" alt="">
+        <a href="img/gallery-8.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-9.jpg" alt="">
+        <a href="img/gallery-9.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-10.jpg" alt="">
+        <a href="img/gallery-10.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-11.jpg" alt="">
+        <a href="img/gallery-11.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-12.jpg" alt="">
+        <a href="img/gallery-12.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-13.jpg" alt="">
+        <a href="img/gallery-13.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
+      <div class="gallery-item">
+        <img class="img-fluid w-100" src="img/gallery-14.jpg" alt="">
+        <a href="img/gallery-14.jpg" data-lightbox="gallery">
+          <i class="fa fa-2x fa-plus text-white"></i>
+        </a>
+      </div>
     </div>
   </div>
   <!-- Gallery End -->
@@ -320,7 +351,7 @@
 
       <!-- On the Day Section -->
       <div class="row justify-content-center mb-4">
-        <div class="col-md-5 text-center">
+        <div class="col-md-5 text-center mb-4">
           <h4 class="display-5 mb-4">On the Day</h4>
           <!-- <h5 class="font-weight-normal text-muted mb-4">Below are some important details about the wedding day:</h5> -->
           <div class="row justify-content-center">
@@ -332,34 +363,82 @@
                   and drinks reception will be held on grass.</li>
                 <li class="mb-3"><strong>Unplugged Ceremony:</strong> Please no phones during the ceremony - let the
                   pros do their job! We'll be sharing the photos and videos afterwards.</li>
-                <li class="mb-3"><strong>Plan of the Day:</strong> Detailed schedule will be provided closer to the
-                  date.</li>
                 <li class="mb-3"><strong>Parking:</strong> Parking is available at the venue.</li>
+                <li class="mb-3"><strong>Updates:</strong> Website will be updated with the latest details closer to the
+                  day.</li>
               </ul>
             </div>
           </div>
         </div>
         <!-- Schedule Section -->
-        <div class="col-md-5 text-center">
+        <div class="col-md-5 text-center mb-4">
           <h4 class="display-5 mb-4">Schedule</h4>
-          <div class="row justify-content-center mb-4">
+          <div class="row justify-content-center">
             <div class="col-2">
               <ul class="list-unstyled">
                 <br />
                 <li class="mb-3"><strong>11:45</strong></li>
-                <li class="mb-3"><strong>12:15</strong></li>
-                <li class="mb-3"><strong>15:30</strong></li>
-                <li class="mb-3"><strong>18:30</strong></li>
-                <li class="mb-3"><strong>23:30</strong></li>
               </ul>
             </div>
-            <div class="col-5">
+            <div class="col-6">
               <ul class="list-unstyled">
                 <br />
                 <li class="mb-3">Arrive</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <ul class="list-unstyled">
+                <br />
+                <li class="mb-3"><strong>12:15</strong></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <br />
                 <li class="mb-3">Ceremony</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <ul class="list-unstyled">
+                <br />
+                <li class="mb-3"><strong>15:30</strong></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <br />
                 <li class="mb-3">Wedding Breakfast</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <ul class="list-unstyled">
+                <br />
+                <li class="mb-3"><strong>18:30</strong></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <br />
                 <li class="mb-3">Evening Party</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <ul class="list-unstyled">
+                <br />
+                <li class="mb-3"><strong>23:30</strong></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <br />
                 <li class="mb-3">End of the night</li>
               </ul>
             </div>
@@ -368,14 +447,15 @@
       </div>
 
       <!-- Accomodation Section -->
-      <div class="row justify-content-center mt-5">
+      <div class="row justify-content-center mb-4">
         <div class="col-md-12 text-center">
           <h4 class="display-5 mb-4">Accommodation</h4>
           <div class="row justify-content-center">
             <div class="col-md-12 text-center">
               <ul class="list-unstyled">
                 <li class="mb-3">Accommodation is available at the venue and can be booked through this link <a
-                    href="https://example.com" target="_blank">here</a>.</li>
+                    href="https://direct-book.com/properties/wasingparkdirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=GBP&checkInDate=2025-05-27&checkOutDate=2025-05-28&promocode=270525MOORHOUSE&trackPage=yes"
+                    target="_blank">here</a>, be sure to use the promo code <strong>270525MOORHOUSE</strong>.</li>
               </ul>
             </div>
           </div>
@@ -383,7 +463,7 @@
       </div>
 
       <!-- Next Day Section -->
-      <div class="row justify-content-center mt-5">
+      <div class="row justify-content-center">
         <div class="col-md-12 text-center">
           <h4 class="display-5 mb-4">Next Day</h4>
           <p class="display-5 font-weight-normal text-muted mb-4">We look forward to spending more time with you!</p>
@@ -396,7 +476,7 @@
                   Silchester
                   Roman Ruins, RG7 2HP.</li>
                 <li class="mb-3"><strong>Meet at the Pub:</strong> After the walk, we can have a tipple at the local
-                  pub. The Red Lion, RG7 2HU.</li>
+                  pub. Location TBC.</li>
               </ul>
             </div>
           </div>
@@ -407,8 +487,8 @@
   </div>
   <!-- Event End -->
 
-  <!-- Event Start -->
-  <div class="container-fluid" id="event">
+  <!-- Registry Start -->
+  <div class="container-fluid" id="registry">
     <div class="container py-5">
       <!-- Section Title -->
       <div class="section-title position-relative text-center">
@@ -416,11 +496,24 @@
         <h1 class="font-secondary display-4">Our Wedding Wishlist</h1>
         <i class="far fa-heart text-dark"></i>
       </div>
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-12 text-center">
+          <p>We're looking forward to celebrating with you on our big day. Having you attend our wedding is the greatest
+            gift of all, however, if you're looking for wedding gift ideas, we've registered <a
+              href="https://prezola.com/buy/view/204608" target="_blank">here</a> for things that we
+            would like to outfit our new home.</p>
+          <p>
+            <strong>Note: </strong>We have noticed that some of the items on here have a markup, so if there is anything
+            on this list that you would like to gift us but have seen cheaper elsewhere, let us know, and we'll remove
+            it from the list.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- RSVP Start -->
-  <div class="container-fluid py-5" id="rsvp">
+  <div class="container-fluid" id="rsvp">
     <div class="container py-5">
       <div class="section-title position-relative text-center">
         <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">RSVP</h6>
@@ -484,7 +577,7 @@
                     this.setCustomValidity('You need to fill this in'); 
                     htmx.find('#form-rsvp').reportValidity(); 
                   }">
-                  <option value="" disabled selected hidden>Will you be joining us for a walk the day after?
+                  <option value="" disabled selected hidden>Joining us for a walk the day after?
                   </option>
                   <option value="true">Yes</option>
                   <option value="false">No</option>
@@ -522,7 +615,6 @@
   <!-- Back to Top -->
   <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-
   <!-- JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -552,6 +644,14 @@
 
   <!-- Template Javascript -->
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lightbox.option({
+        'albumLabel': '',
+      });
+    });
+  </script>
 </body>
 
 </html>
