@@ -23,3 +23,15 @@ model LogEntry {
   imageName String
   ipAddress String
 }
+
+model Rsvp {
+  id             Int      @id @default(autoincrement())
+  timestamp      DateTime @default(now())
+  name           String
+  email          String
+  isAttending    Boolean
+  numberOfGuests Int?
+  dietary        String?
+  morningWalk    Boolean?
+  clientIp       String
+}

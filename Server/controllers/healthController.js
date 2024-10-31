@@ -1,14 +1,11 @@
 import fs from 'fs/promises';
 import prisma from '../config/database.js';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { time } from 'console';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { CONFIG } from '../config/config.js';
 
 export const checkHealth = async (req, res) => {
   try {
-    const invitationsDir = path.join(__dirname, '../invitations');
+    const invitationsDir = path.join(CONFIG.dirname, '../invitations');
     try {
       await fs.access(invitationsDir);
     } catch {
