@@ -18,20 +18,18 @@ export const renderHomePage = (req, res) => {
   const cookieFlag = req.cookies[flagKey];
 
   if (flagToggle === 'true') {
-    return res.sendFile(path.join(CONFIG.dirname, '../public/index.html'));
+    return res.sendFile(path.join(CONFIG.dirname, 'public/index.html'));
   }
 
   if (queryFlag === 'false') {
     res.clearCookie(flagKey);
-    return res.sendFile(
-      path.join(CONFIG.dirname, '../public/coming_soon.html')
-    );
+    return res.sendFile(path.join(CONFIG.dirname, 'public/coming_soon.html'));
   }
 
   if (cookieFlag === 'true' || ['', 'true'].includes(queryFlag)) {
     res.cookie(flagKey, 'true', COOKIE_OPTIONS);
-    return res.sendFile(path.join(CONFIG.dirname, '../public/index.html'));
+    return res.sendFile(path.join(CONFIG.dirname, 'public/index.html'));
   }
 
-  res.sendFile(path.join(CONFIG.dirname, '../public/coming_soon.html'));
+  res.sendFile(path.join(CONFIG.dirname, 'public/coming_soon.html'));
 };

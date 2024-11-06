@@ -5,7 +5,7 @@ import { CONFIG } from '../config/config.js';
 
 export const checkHealth = async (req, res) => {
   try {
-    const invitationsDir = path.join(CONFIG.dirname, '../invitations');
+    const invitationsDir = path.join(CONFIG.dirname, 'invitations');
     try {
       await fs.access(invitationsDir);
     } catch {

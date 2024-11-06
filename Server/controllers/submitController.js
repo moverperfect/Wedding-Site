@@ -39,7 +39,7 @@ export const handleFormSubmission = async (req, res) => {
       );
     });
 
-    const logFilePath = path.join(CONFIG.dirname, '../invitations/rsvp.log');
+    const logFilePath = path.join(CONFIG.dirname, 'logs/rsvp.log');
     fs.appendFileSync(logFilePath, `${logEntry}\n`);
 
     if (isAttending === true) {

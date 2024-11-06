@@ -6,7 +6,7 @@ import { CONFIG } from '../config/config.js';
 
 export const getInvitation = async (req, res) => {
   const imageName = path.basename(req.params.imageName);
-  const invitationsDir = path.join(CONFIG.dirname, '../invitations');
+  const invitationsDir = path.join(CONFIG.dirname, 'invitations');
   const userFilename = path.join(invitationsDir, imageName);
   const ALLOWED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif'];
   if (!ALLOWED_EXTENSIONS.includes(path.extname(imageName))) {
