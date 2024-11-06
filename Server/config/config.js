@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 
 export const CONFIG = {
   port: process.env.PORT || 3000,
-  dirname: path.dirname(fileURLToPath(import.meta.url)),
+  dirname: path.join(path.dirname(fileURLToPath(import.meta.url)), '..'),
   environment: process.env.NODE_ENV || 'development',
   flags: {
     VERSION_ONE: {
