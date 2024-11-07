@@ -1,8 +1,13 @@
 import sharpResponsive from 'gulp-sharp-responsive';
-import debug from 'gulp-debug';
 import gulp from 'gulp';
+import GulpCleanCss from 'gulp-clean-css';
+import terser from 'gulp-terser';
+import rename from 'gulp-rename';
+import GulpPostCss from 'gulp-postcss';
+import uncss from 'postcss-uncss';
 const { src, dest, parallel } = gulp;
 
+/* Images */
 const IMAGE_SIZES = {
   carousel: [
     300, 880, 1210, 1470, 1680, 1880, 2050, 2210, 2360, 2500, 2640, 2765,
@@ -46,9 +51,40 @@ const galleryBackgroundImage = createImageTask(
   IMAGE_SIZES.carousel
 );
 
-export default parallel(
+const images = parallel(
   carouselImage,
   galleryImages,
   aboutImages,
   galleryBackgroundImage
 );
+/* Images End */
+
+/* CSS */
+const minifyCSS = () =>
+  src('public/css/style.css')
+    .pipe(
+      GulpPostCss([
+        uncss({ html: ['public/index.html', 'public/coming_soon.html'] }),
+      ])
+    )
+    .pipe(GulpCleanCss())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('public/optimised/css'));
+
+const css = parallel(minifyCSS);
+/* CSS End */
+
+/* JS */
+const minifyJS = () =>
+  src('public/js/main.js')
+    .pipe(terser())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('public/optimised/js'));
+
+const js = parallel(minifyJS);
+/* JS End */
+
+gulp.task('default', parallel(images, css, js));
+gulp.task('images', images);
+gulp.task('css', css);
+gulp.task('js', js);
