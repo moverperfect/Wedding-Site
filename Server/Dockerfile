@@ -7,14 +7,14 @@ ENV NODE_ENV=production
 WORKDIR /usr/src/app
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y openssl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+  apt-get install --no-install-recommends -y openssl && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 RUN --mount=type=bind,source=package.json,target=package.json \
-    --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
+  --mount=type=bind,source=package-lock.json,target=package-lock.json \
+  --mount=type=cache,target=/root/.npm \
+  npm ci --omit=dev
 
 COPY . .
 
