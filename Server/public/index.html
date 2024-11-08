@@ -11,30 +11,34 @@
   <!-- Favicon -->
   <link href="img/favicon.ico" rel="icon">
 
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap"
-    rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
-
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
-
-  <!-- Libraries Stylesheet -->
-  <link href="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.10.0/dist/css/lightbox.min.css" rel="stylesheet">
 
   <!-- Customized Bootstrap Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="optimised/css/style.min.css" rel="stylesheet">
 
-  <link href="fonts/BlackerSansDisplay-Regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
-  <link href="fonts/BlackerSansText-Regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
-  <link href="fonts/BlackerSansText-Bold.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/AlexBrush-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Arimo-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Alex Brush';
+      font-style: normal;
+      font-weight: 400;
+      src: url("fonts/AlexBrush-Regular.woff2") format('woff2'), url("fonts/AlexBrush-Regular.ttf") format('truetype');
+      font-display: block;
+    }
 
-  <!-- <meta http-equiv="refresh" content="10"> -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    @font-face {
+      font-family: 'Arimo';
+      font-style: normal;
+      font-weight: 400;
+      src: url("fonts/Arimo-Regular.woff2") format('woff2'), url("fonts/Arimo-Regular.ttf") format('truetype');
+      font-display: swap;
+    }
+  </style>
+
+  <!-- Images -->
+  <link rel="preload" as="image" href="optimised/img/carousel-1.webp"
+    imagesrcset="optimised/img/carousel-1-300px.webp 300w, optimised/img/carousel-1-880px.webp 880w, optimised/img/carousel-1-1210px.webp 1210w, optimised/img/carousel-1-1470px.webp 1470w, optimised/img/carousel-1-1680px.webp 1680w, optimised/img/carousel-1-1880px.webp 1880w, optimised/img/carousel-1-2050px.webp 2050w, optimised/img/carousel-1-2210px.webp 2210w, optimised/img/carousel-1-2360px.webp 2360w, optimised/img/carousel-1-2500px.webp 2500w, optimised/img/carousel-1-2640px.webp 2640w, optimised/img/carousel-1-2765px.webp 2765w, optimised/img/carousel-1-300px.webp 300w"
+    type="image/webp" imagesizes="100vw">
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51" style="font-family:'Arimo', sans-serif;">
@@ -71,7 +75,9 @@
   <!-- Carousel Start -->
   <div class="container-fluid p-0 mb-5 pb-5" id="home">
     <div class="position-relative" style="height: 100vh; min-height: 400px;">
-      <img class="position-absolute w-100 h-100" src="img/carousel-1.png" style="object-fit: cover;">
+      <img class="position-absolute w-100 h-100" src="optimised/img/carousel-1.webp"
+        srcset="optimised/img/carousel-1-300px.webp 300w, optimised/img/carousel-1-880px.webp 880w, optimised/img/carousel-1-1210px.webp 1210w, optimised/img/carousel-1-1470px.webp 1470w, optimised/img/carousel-1-1680px.webp 1680w, optimised/img/carousel-1-1880px.webp 1880w, optimised/img/carousel-1-2050px.webp 2050w, optimised/img/carousel-1-2210px.webp 2210w, optimised/img/carousel-1-2360px.webp 2360w, optimised/img/carousel-1-2500px.webp 2500w, optimised/img/carousel-1-2640px.webp 2640w, optimised/img/carousel-1-2765px.webp 2765w"
+        sizes="100vw" alt="Jack & Eleanor" style="object-fit: cover;">
       <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
         <div class="p-3" style="max-width: 900px;">
           <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Jack & Eleanor</h1>
@@ -103,12 +109,18 @@
           </div>
         </div>
         <div class="col-md-6 p-0" style="min-height: 400px;">
-          <img class="position-absolute w-100 h-100" src="img/about-1.jpg" style="object-fit: cover;">
+          <img class="position-absolute w-100 h-100" src="optimised/img/about-1.webp"
+            sizes="(min-width: 1200px) 555px, (min-width: 1000px) 465px, (min-width: 780px) 345px, (min-width: 600px) 510px, calc(96.43vw - 49px)"
+            srcset="optimised/img/about-1-465px.webp 465w, optimised/img/about-1-690px.webp 690w, optimised/img/about-1-930px.webp 930w, optimised/img/about-1-1110px.webp 1110w"
+            style="object-fit: cover;">
         </div>
       </div>
       <div class="row m-0">
         <div class="col-md-6 p-0" style="min-height: 400px;">
-          <img class="position-absolute w-100 h-100" src="img/about-2.jpg" style="object-fit: cover;">
+          <img class="position-absolute w-100 h-100" src="optimised/img/about-2.webp"
+            sizes="(min-width: 1200px) 555px, (min-width: 1000px) 465px, (min-width: 780px) 345px, (min-width: 600px) 510px, calc(96.43vw - 49px)"
+            srcset="optimised/img/about-2-465px.webp 465w, optimised/img/about-2-690px.webp 690w, optimised/img/about-2-930px.webp 930w, optimised/img/about-2-1110px.webp 1110w"
+            style="object-fit: cover;">
         </div>
         <div class="col-md-6 p-0 text-center text-md-left">
           <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
@@ -235,86 +247,142 @@
       <div class="gallery-item" id="empty-gallery-item">
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-1.jpg" alt="">
-        <a href="img/gallery-1.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-1.webp" data-src="optimised/img/gallery-1.webp"
+          data-srcset="optimised/img/gallery-1-507px.webp 507w, optimised/img/gallery-1-800px.webp 800w, optimised/img/gallery-1-1014px.webp 1014w"
+          srcset="optimised/img/gallery-1-507px.webp 507w, optimised/img/gallery-1-800px.webp 800w, optimised/img/gallery-1-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-1.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-2.jpg" alt="">
-        <a href="img/gallery-2.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-2.webp" data-src="optimised/img/gallery-2.webp"
+          srcset="optimised/img/gallery-2-507px.webp 507w, optimised/img/gallery-2-800px.webp 800w, optimised/img/gallery-2-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-2-507px.webp 507w, optimised/img/gallery-2-800px.webp 800w, optimised/img/gallery-2-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-2.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-3.jpg" alt="">
-        <a href="img/gallery-3.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-3.webp" data-src="optimised/img/gallery-3.webp"
+          srcset="optimised/img/gallery-3-507px.webp 507w, optimised/img/gallery-3-800px.webp 800w, optimised/img/gallery-3-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-3-507px.webp 507w, optimised/img/gallery-3-800px.webp 800w, optimised/img/gallery-3-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-3.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-4.jpg" alt="">
-        <a href="img/gallery-4.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-4.webp" data-src="optimised/img/gallery-4.webp"
+          srcset="optimised/img/gallery-4-507px.webp 507w, optimised/img/gallery-4-800px.webp 800w, optimised/img/gallery-4-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-4-507px.webp 507w, optimised/img/gallery-4-800px.webp 800w, optimised/img/gallery-4-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-4.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-5.jpg" alt="">
-        <a href="img/gallery-5.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-5.webp" data-src="optimised/img/gallery-5.webp"
+          srcset="optimised/img/gallery-5-507px.webp 507w, optimised/img/gallery-5-800px.webp 800w, optimised/img/gallery-5-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-5-507px.webp 507w, optimised/img/gallery-5-800px.webp 800w, optimised/img/gallery-5-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-5.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-6.jpg" alt="">
-        <a href="img/gallery-6.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-6.webp" data-src="optimised/img/gallery-6.webp"
+          srcset="optimised/img/gallery-6-507px.webp 507w, optimised/img/gallery-6-800px.webp 800w, optimised/img/gallery-6-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-6-507px.webp 507w, optimised/img/gallery-6-800px.webp 800w, optimised/img/gallery-6-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-6.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-7.jpg" alt="">
-        <a href="img/gallery-7.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-7.webp" data-src="optimised/img/gallery-7.webp"
+          srcset="optimised/img/gallery-7-507px.webp 507w, optimised/img/gallery-7-800px.webp 800w, optimised/img/gallery-7-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-7-507px.webp 507w, optimised/img/gallery-7-800px.webp 800w, optimised/img/gallery-7-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-7.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-8.jpg" alt="">
-        <a href="img/gallery-8.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-8.webp" data-src="optimised/img/gallery-8.webp"
+          srcset="optimised/img/gallery-8-507px.webp 507w, optimised/img/gallery-8-800px.webp 800w, optimised/img/gallery-8-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-8-507px.webp 507w, optimised/img/gallery-8-800px.webp 800w, optimised/img/gallery-8-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-8.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-9.jpg" alt="">
-        <a href="img/gallery-9.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-9.webp" data-src="optimised/img/gallery-9.webp"
+          srcset="optimised/img/gallery-9-507px.webp 507w, optimised/img/gallery-9-800px.webp 800w, optimised/img/gallery-9-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-9-507px.webp 507w, optimised/img/gallery-9-800px.webp 800w, optimised/img/gallery-9-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-9.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-10.jpg" alt="">
-        <a href="img/gallery-10.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-10.webp" data-src="optimised/img/gallery-10.webp"
+          srcset="optimised/img/gallery-10-507px.webp 507w, optimised/img/gallery-10-800px.webp 800w, optimised/img/gallery-10-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-10-507px.webp 507w, optimised/img/gallery-10-800px.webp 800w, optimised/img/gallery-10-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-10.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-11.jpg" alt="">
-        <a href="img/gallery-11.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-11.webp" data-src="optimised/img/gallery-11.webp"
+          srcset="optimised/img/gallery-11-507px.webp 507w, optimised/img/gallery-11-800px.webp 800w, optimised/img/gallery-11-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-11-507px.webp 507w, optimised/img/gallery-11-800px.webp 800w, optimised/img/gallery-11-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-11.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-12.jpg" alt="">
-        <a href="img/gallery-12.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-12.webp" data-src="optimised/img/gallery-12.webp"
+          srcset="optimised/img/gallery-12-507px.webp 507w, optimised/img/gallery-12-800px.webp 800w, optimised/img/gallery-12-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-12-507px.webp 507w, optimised/img/gallery-12-800px.webp 800w, optimised/img/gallery-12-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-12.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-13.jpg" alt="">
-        <a href="img/gallery-13.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-13.webp" data-src="optimised/img/gallery-13.webp"
+          srcset="optimised/img/gallery-13-507px.webp 507w, optimised/img/gallery-13-800px.webp 800w, optimised/img/gallery-13-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-13-507px.webp 507w, optimised/img/gallery-13-800px.webp 800w, optimised/img/gallery-13-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-13.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
       <div class="gallery-item">
-        <img class="img-fluid w-100" src="img/gallery-14.jpg" alt="">
-        <a href="img/gallery-14.jpg" data-lightbox="gallery">
+        <img class="img-fluid w-100" src="optimised/img/gallery-14.webp" data-src="optimised/img/gallery-14.webp"
+          srcset="optimised/img/gallery-14-507px.webp 507w, optimised/img/gallery-14-800px.webp 800w, optimised/img/gallery-14-1014px.webp 1014w"
+          data-srcset="optimised/img/gallery-14-507px.webp 507w, optimised/img/gallery-14-800px.webp 800w, optimised/img/gallery-14-1014px.webp 1014w"
+          sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, (max-width: 992px) 25vw, (max-width: 1200px) 20vw, 20vw"
+          alt="">
+        <a href="optimised/img/gallery-14.webp" data-lightbox="gallery">
           <i class="fa fa-2x fa-plus text-white"></i>
         </a>
       </div>
@@ -455,7 +523,8 @@
               <ul class="list-unstyled">
                 <li class="mb-3">Accommodation is available at the venue and can be booked through this link <a
                     href="https://direct-book.com/properties/wasingparkdirect?locale=en&items[0][adults]=2&items[0][children]=0&items[0][infants]=0&currency=GBP&checkInDate=2025-05-27&checkOutDate=2025-05-28&promocode=270525MOORHOUSE&trackPage=yes"
-                    target="_blank">here</a>, be sure to use the promo code <strong>270525MOORHOUSE</strong>.</li>
+                    target="_blank">here</a>, be sure to use the promo code <strong>270525MOORHOUSE</strong>. There are
+                  17 rooms available and are first come, first served.</li>
               </ul>
             </div>
           </div>
@@ -470,9 +539,9 @@
           <div class="row justify-content-center">
             <div class="col-md-12 text-center">
               <ul class="list-unstyled">
-                <li class="mb-3"><strong>Checkout:</strong> For those staying at the venue, checkout is at 10:00 AM
-                  after having had breakfast.</li>
-                <li class="mb-3"><strong>Morning Walk:</strong> Join us for a walk. Meeting at 10:30 AM at the
+                <li class="mb-3"><strong>Checkout:</strong> For those staying at the venue, checkout is at 10:30 AM
+                  with breakfast served at 09:00 AM.</li>
+                <li class="mb-3"><strong>Morning Walk:</strong> Join us for a walk. Meeting at 11:00 AM at the
                   Silchester
                   Roman Ruins, RG7 2HP.</li>
                 <li class="mb-3"><strong>Meet at the Pub:</strong> After the walk, we can have a tipple at the local
@@ -616,34 +685,38 @@
   <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha256-OUFW7hFO0/r5aEGTQOz9F/aXQOt+TwqI1Z4fbVvww04=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    integrity="sha512-bnIvzh6FU75ZKxp0GXLH9bewza/OIw6dLVh9ICg0gogclmYGguQJWl8U30WpbsGTqbIiAwxTsbe76DErLq5EDQ=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.3/js/bootstrap.min.js"
+    integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
     integrity="sha512-0QbL0ph8Tc8g5bLhfVzSqxe9GERORsKhIn1IrpxDAgUsbBGz/V7iSav2zzW325XGd1OMLdL4UiqRJj702IeqnQ=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/waypoints@4.0.1/lib/jquery.waypoints.min.js"
-    integrity="sha512-3yXkxlQAK/ZsuuoJF5dvda/Z4WyyLZlfNx3oedg9kzQ5G/npIXGJlWZNqP3WQyOSECBYQf2grGkbdRaT1QXHWQ=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.2.0/dist/owl.carousel.min.js"
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"
+    integrity="sha512-CEiA+78TpP9KAIPzqBvxUv8hy41jyI3f2uHi7DGp/Y/Ka973qgSdybNegWFciqh6GrN2UePx2KkflnQUbUhNIA=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/owl.carousel.min.js"
     integrity="sha512-yG5avRhg8AWY1BsP/N//3vL3l74jbsQHivqAXOx7KB3agFQzFbeubQr9zYBinQ8+Iwsebv2s2+muvA9fMw/Ebg=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.5/dist/isotope.pkgd.min.js"
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.5/isotope.pkgd.min.js"
     integrity="sha512-pTyLt2tKREvSiNYM21FRWRQtjOt/hZNYI+BRQx9yDObvcIydJ+3Ds/DxAKT/vK7D7ekSFfpubYh7ckity28MKQ=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.10.0/dist/js/lightbox.min.js"
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"
     integrity="sha512-nUUXyEC/xe6BRSl6eTPMaXErp5wdoftIGgrCBRd51MmwMn9PnN+X2usTJb7sGphsXtKT335xWAbccalopgcjNA=="
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js"
-    integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.9.12/dist/htmx.min.js"
-    integrity="sha256-RJMXreeIHpSVENthSZHhlcOgmcTHkcJNrOxV+fSipFI=" crossorigin="anonymous"></script>
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"
+    integrity="sha512-kfs3Dt9u9YcOiIt4rNcPUzdyNNO9sVGQPiZsub7ywg6lRW5KuK1m145ImrFHe3LMWXHndoKo2YRXWy8rnOcSKg=="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.12/htmx.min.js"
+    integrity="sha512-JvpjarJlOl4sW26MnEb3IdSAcGdeTeOaAlu2gUZtfFrRgnChdzELOZKl0mN6ZvI0X+xiX5UMvxjK2Rx2z/fliw=="
+    crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/htmx-ext-response-targets@2.0.1/response-targets.min.js"
-    integrity="sha256-0NxOMX/olxaAJZbINvI6oJ38BxK6vVL9gjdRKD2+HFk=" crossorigin="anonymous"></script>
+    integrity="sha256-0NxOMX/olxaAJZbINvI6oJ38BxK6vVL9gjdRKD2+HFk=" crossorigin="anonymous" defer></script>
 
   <!-- Template Javascript -->
-  <script src="js/main.js"></script>
+  <script src="optimised/js/main.min.js" defer></script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -652,6 +725,28 @@
       });
     });
   </script>
+
+  <!-- Font Awesome -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+  </noscript>
+
+  <!-- Libraries Stylesheet -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css">
+  </noscript>
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css">
+  </noscript>
+
+  <!-- Full Style Sheet -->
+  <link href="css/style.css" rel="stylesheet">
 </body>
 
 </html>

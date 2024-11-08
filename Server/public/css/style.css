@@ -9877,7 +9877,7 @@ a.text-dark:focus {
 
 /********** Template CSS ************/
 .font-secondary {
-  font-family: 'Alex Brush', 'Great Vibes', cursive;
+  font-family: 'Alex Brush', cursive;
 }
 
 .btn-square {
@@ -10153,8 +10153,104 @@ a.text-dark:focus {
 
 .bg-gallery {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../img/gallery.jpg), no-repeat center center;
+    url(/optimised/img/gallery.webp), no-repeat center center;
   background-size: cover;
+}
+
+@media (max-width: 2765px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-2765px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 2640px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-2640px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 2500px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-2500px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 2360px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-2360px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 2210px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-2210px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 2050px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-2050px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 1880px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-1880px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 1680px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-1680px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 1470px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-1470px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 1210px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-1210px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 880px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-880px.webp), no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 300px) {
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url(/optimised/img/gallery-300px.webp), no-repeat center center;
+    background-size: cover;
+  }
 }
 
 .gallery-carousel .owl-nav {

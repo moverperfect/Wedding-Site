@@ -27,6 +27,7 @@ export default (req, res, next) => {
     'txt',
     'woff2',
     'woff',
+    'ttf',
   ];
 
   if (req.method !== 'GET') {
