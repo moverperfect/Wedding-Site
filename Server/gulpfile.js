@@ -28,7 +28,7 @@ const generateFormats = (sizes) => {
 
 const createImageTask = (source, sizes) => {
   return () =>
-    src(source)
+    src(source, { encoding: false })
       .pipe(sharpResponsive({ formats: generateFormats(sizes) }))
       .on('error', console.error.bind(console))
       .pipe(dest('public/optimised/img'));
