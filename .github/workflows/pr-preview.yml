@@ -22,7 +22,7 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            cd ~/SaveTheDate-Emailer
+            cd ~/Wedding-Site
             git fetch origin ${{ github.ref }}:${{ github.ref }} --force
             git reset --hard FETCH_HEAD
 
@@ -47,7 +47,7 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            cd ~/SaveTheDate-Emailer
+            cd ~/Wedding-Site
             git fetch origin
             git reset --hard origin/main
             git pull origin ${{ github.ref }}
@@ -55,6 +55,6 @@ jobs:
             cd Server
             # Tag the image with the commit hash
             docker build --build-arg NODE_VERSION=$(cat ../.nvmrc | tr -cd [:digit:].) -t wedding:${{ github.sha }} .
-            docker stop live_wedding|| true
+            docker stop live_wedding || true
             docker rm live_wedding || true
             docker run -d --restart unless-stopped --net=docker_backend --ip=172.20.2.1 --name live_wedding --env-file ../../production.env -v /home/${{ secrets.USERNAME }}/invitations:/usr/src/app/invitations:ro -v /home/${{ secrets.USERNAME }}/production-logs:/usr/src/app/logs:rw wedding:${{ github.sha }}
