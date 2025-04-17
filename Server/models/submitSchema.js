@@ -24,6 +24,7 @@ const submitSchema = z
     morningWalk: createBooleanField(
       'Please indicate if you are joining us for a walk the day after.'
     ).or(z.literal('')),
+    'cf-turnstile-response': z.string().min(1, { message: 'Please complete the security check.' }),
   })
   .superRefine((data, ctx) => {
     if (data.isAttending) {
