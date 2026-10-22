@@ -10265,8 +10265,9 @@ a.text-dark:focus {
   z-index: 1;
 }
 
-.gallery-carousel .owl-nav .owl-prev,
-.gallery-carousel .owl-nav .owl-next {
+/* Must out-specify Owl 2.3's `.owl-carousel .owl-nav button.owl-prev` reset */
+.gallery-carousel.owl-carousel .owl-nav .owl-prev,
+.gallery-carousel.owl-carousel .owl-nav .owl-next {
   width: 60px;
   height: 60px;
   display: flex;
