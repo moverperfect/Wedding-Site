@@ -30,6 +30,6 @@
     "gulp-sharp-responsive": "0.4.1",
     "gulp-terser": "2.1.0",
     "postcss-uncss": "0.17.0",
-    "prisma": "5.22.0"
+    "prisma": "7.10.1"
   }
 }
