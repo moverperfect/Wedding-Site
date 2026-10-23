@@ -13,7 +13,7 @@
   "dependencies": {
     "@libsql/client": "0.6.2",
     "@prisma/adapter-libsql": "5.22.0",
-    "@prisma/client": "5.22.0",
+    "@prisma/client": "7.10.1",
     "cookie-parser": "1.4.7",
     "dotenv": "16.6.1",
     "express": "4.22.3",
