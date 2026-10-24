@@ -6,10 +6,32 @@ import Pushbullet from 'pushbullet';
 import fs from 'fs';
 import { CONFIG } from '../config/config.js';
 import path from 'path';
+import fetch from 'node-fetch';
 
 export const handleFormSubmission = async (req, res) => {
   try {
     const validatedData = submitSchema.parse(req.body);
+
+    // Verify Turnstile token
+    const turnstileResponse = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        secret: process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY,
+        response: validatedData['cf-turnstile-response'],
+        remoteip: getClientIp(req),
+      }),
+    });
+
+    const turnstileResult = await turnstileResponse.json();
+
+    if (!turnstileResult.success) {
+      return res.status(400).send(
+        '<div class="alert alert-danger" role="alert">Security check failed. Please try again.</div>'
+      );
+    }
 
     const { name, email, numberOfGuests, isAttending, dietary, morningWalk } =
       validatedData;
